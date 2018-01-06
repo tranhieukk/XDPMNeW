@@ -1,0 +1,17 @@
+H:\XDPM\QuanLyDiem\QuanLyDiem\DTO\bin\Debug\DTO.dll
+H:\XDPM\QuanLyDiem\QuanLyDiem\DTO\bin\Debug\DTO.pdb
+H:\XDPM\QuanLyDiem\QuanLyDiem\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+H:\XDPM\QuanLyDiem\QuanLyDiem\DTO\obj\Debug\DTO.dll
+H:\XDPM\QuanLyDiem\QuanLyDiem\DTO\obj\Debug\DTO.pdb
+H:\Git\XDPM\DTO\bin\Debug\DTO.dll
+H:\Git\XDPM\DTO\bin\Debug\DTO.pdb
+H:\Git\XDPM\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+H:\Git\XDPM\DTO\obj\Debug\DTO.dll
+H:\Git\XDPM\DTO\obj\Debug\DTO.pdb
+H:\Git\XDPM\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+H:\Git\XDPM_new\DTO\bin\Debug\DTO.dll
+H:\Git\XDPM_new\DTO\bin\Debug\DTO.pdb
+H:\Git\XDPM_new\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+H:\Git\XDPM_new\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+H:\Git\XDPM_new\DTO\obj\Debug\DTO.dll
+H:\Git\XDPM_new\DTO\obj\Debug\DTO.pdb
