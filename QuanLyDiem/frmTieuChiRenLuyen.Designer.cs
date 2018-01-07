@@ -174,7 +174,7 @@
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(415, 98);
+            this.layoutControl1.Size = new System.Drawing.Size(415, 108);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -184,7 +184,7 @@
             this.txtMucDiem.Margin = new System.Windows.Forms.Padding(2);
             this.txtMucDiem.MenuManager = this.barManager1;
             this.txtMucDiem.Name = "txtMucDiem";
-            this.txtMucDiem.Size = new System.Drawing.Size(314, 20);
+            this.txtMucDiem.Size = new System.Drawing.Size(331, 20);
             this.txtMucDiem.StyleController = this.layoutControl1;
             this.txtMucDiem.TabIndex = 6;
             // 
@@ -194,7 +194,7 @@
             this.txtTenTieuChi.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenTieuChi.MenuManager = this.barManager1;
             this.txtTenTieuChi.Name = "txtTenTieuChi";
-            this.txtTenTieuChi.Size = new System.Drawing.Size(314, 20);
+            this.txtTenTieuChi.Size = new System.Drawing.Size(331, 20);
             this.txtTenTieuChi.StyleController = this.layoutControl1;
             this.txtTenTieuChi.TabIndex = 5;
             // 
@@ -204,7 +204,7 @@
             this.txtMaTieuChi.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaTieuChi.MenuManager = this.barManager1;
             this.txtMaTieuChi.Name = "txtMaTieuChi";
-            this.txtMaTieuChi.Size = new System.Drawing.Size(314, 20);
+            this.txtMaTieuChi.Size = new System.Drawing.Size(331, 20);
             this.txtMaTieuChi.StyleController = this.layoutControl1;
             this.txtMaTieuChi.TabIndex = 4;
             // 
@@ -220,7 +220,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(398, 102);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(415, 108);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -228,7 +228,7 @@
             this.layoutControlItem1.Control = this.txtMaTieuChi;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(378, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(395, 24);
             this.layoutControlItem1.Text = "Mã tiêu chí";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(56, 13);
             // 
@@ -237,7 +237,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 72);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(378, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(395, 16);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
@@ -245,7 +245,7 @@
             this.layoutControlItem2.Control = this.txtTenTieuChi;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(378, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(395, 24);
             this.layoutControlItem2.Text = "Tên tiêu chí";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(56, 13);
             // 
@@ -254,14 +254,14 @@
             this.layoutControlItem3.Control = this.txtMucDiem;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(378, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(395, 24);
             this.layoutControlItem3.Text = "Mức điểm";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(56, 13);
             // 
             // gvTieuChiRenLuyen
             // 
             this.gvTieuChiRenLuyen.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gvTieuChiRenLuyen.Location = new System.Drawing.Point(18, 141);
+            this.gvTieuChiRenLuyen.Location = new System.Drawing.Point(11, 151);
             this.gvTieuChiRenLuyen.MainView = this.gridView1;
             this.gvTieuChiRenLuyen.Margin = new System.Windows.Forms.Padding(2);
             this.gvTieuChiRenLuyen.MenuManager = this.barManager1;

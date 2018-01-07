@@ -60,5 +60,19 @@ namespace BUS
             string query = " Exec USP_editMonHoc @MaMonHocHientai , @MaMonHoc , @TenMonHoc , @soDVHP ";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { maNganhHientai, MonHoc.MaMH, MonHoc.TenMH,MonHoc.SoHocPhan });
         }
+
+        public bool IsExist(string mmh)
+        {
+            int sl = 0;
+            string query = "exec  USP_checkMonHoc @maMonHoc  ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { mmh });
+            foreach (DataRow row in data.Rows)
+            {
+
+                sl = int.Parse(row["LS"].ToString());
+
+            }
+            return sl >= 1;
+        }
     }
 }

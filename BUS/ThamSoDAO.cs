@@ -46,5 +46,16 @@ namespace BUS
             string query = " Exec USP_editThamSo @maThamSoHientai , @maThamSo ,@giaTri , @ghiChu ";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { maThamSoOld, ThamSo.MaThamSo, ThamSo.GiaTri, ThamSo.GhiChu });
         }
+        public string GetGiaTriThamSo(string mats)
+        {
+
+            string query = " Exec USP_getGiaTriThamSo @maThamSo ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { mats });
+            foreach(DataRow row in data.Rows)
+            {
+                query = row["GiaTri"].ToString();
+            }
+            return query;
+        }
     }
 }

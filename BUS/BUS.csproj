@@ -43,6 +43,7 @@
     <Compile Include="AccountDAO.cs" />
     <Compile Include="ChuanHoa.cs" />
     <Compile Include="ChuyenNganhDAO.cs" />
+    <Compile Include="DiemMonHocDAO.cs" />
     <Compile Include="DiemRenLuyenDAO.cs" />
     <Compile Include="HeDaoTaoDAO.cs" />
     <Compile Include="HocKyDAO.cs" />

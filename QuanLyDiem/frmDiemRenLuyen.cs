@@ -1,5 +1,6 @@
 ﻿using BUS;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -15,14 +16,42 @@ namespace QuanLyDiem
 {
     public partial class frmDiemRenLuyen : Form
     {
+        private static int maxDiem=0; 
         private static DiemRenLuyen diemRenLuyen;
         public frmDiemRenLuyen()
         {
             InitializeComponent();
+            gridView1.CustomDrawRowIndicator += gridView1_CustomDrawRowIndicator;
+            gridView2.CustomDrawRowIndicator += gridView1_CustomDrawRowIndicator;
             loadComboxOption();
             loadOption2();
             show();
 
+        }
+        void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.Info.IsRowIndicator)
+            {
+                if (e.RowHandle < 0)
+                {
+                    e.Info.ImageIndex = 0;
+                    e.Info.DisplayText = String.Empty;
+                }
+                else
+                {
+                    e.Info.ImageIndex = -1;
+                    e.Info.DisplayText = (e.RowHandle + 1).ToString();
+                }
+                SizeF sizeF = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                Int32 width = Convert.ToInt32(sizeF.Width) + 10;
+                BeginInvoke(new MethodInvoker(delegate { cal(width, gridView1); }));
+            }
+
+        }
+        bool cal(Int32 width, GridView _View)
+        {
+            _View.IndicatorWidth = _View.IndicatorWidth < width ? width : _View.IndicatorWidth;
+            return true;
         }
         void show()
         {
@@ -75,27 +104,27 @@ namespace QuanLyDiem
         }
         int getDiemFromTexbox(string s)
         {
-            try
-            {
-                return int.Parse(s);
-            }
-            catch
-            {
-                return 0;
-            }
+            int n;
+            if (int.TryParse(s, out n))
+                return n;
+            return 0;
+           
 
         }
         void addToObject()
         {
+            
+            int max = TieuChiRenLuyenDAO.Instance.MaxDiem(txtMaTieuChi.Text);
             diemRenLuyen = new DiemRenLuyen();
             diemRenLuyen.MaHocKy = txtMaHocKy.Text;
             diemRenLuyen.MaSinhVien = txtMaSV.Text;
             diemRenLuyen.MaTieuChi = txtMaTieuChi.Text;
-
+          
             diemRenLuyen.Tucham = getDiemFromTexbox(txtTuCham.Text);
             diemRenLuyen.Loptruong = getDiemFromTexbox(txtLopTruong.Text);
             diemRenLuyen.Gvcn = getDiemFromTexbox(txtGVCN.Text);
             diemRenLuyen.Khoa = getDiemFromTexbox(txbKhoacham.Text);
+            diemRenLuyen.Good(max);
         }
         void loadComboxOption()
         {
@@ -152,8 +181,9 @@ namespace QuanLyDiem
         {
             addToObject();
             DiemRenLuyenDAO.Instance.Insert(diemRenLuyen);
-            Clear();
-
+            clearTextDiem();
+            loadAllDanhSach();
+            loadTieuChiChuaCham();
 
         }
 
@@ -161,14 +191,19 @@ namespace QuanLyDiem
         {
             addToObject();
             DiemRenLuyenDAO.Instance.Insert(diemRenLuyen);
-            Clear();
+            loadAllDanhSach();
+            loadTieuChiChuaCham();
+            clearTextDiem();
         }
 
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             addToObject();
             DiemRenLuyenDAO.Instance.Remove(diemRenLuyen);
+            loadAllDanhSach();
+            loadTieuChiChuaCham();
             Clear();
+
         }
 
         private void btnReset_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -195,6 +230,7 @@ namespace QuanLyDiem
             {
                 DataRow row = gridView1.GetDataRow(i);
                 txtMaSV.Text = Convert.ToString(row[0]);
+                txtMaTieuChi.Text = Convert.ToString(row[2]);
                 txtTuCham.Text = Convert.ToString(row[3]);
                 txtLopTruong.Text = Convert.ToString(row[4]);
                 txtGVCN.Text = Convert.ToString(row[5]);
@@ -205,6 +241,8 @@ namespace QuanLyDiem
             if (soluong == 0)
             {
                 DiemRenLuyenDAO.Instance.KhoiTaoForSV(txtMaSV.Text, txtMaHocKy.Text);
+                loadAllDanhSach();
+
             }
             loadTieuChiChuaCham();
             show();
@@ -264,9 +302,17 @@ namespace QuanLyDiem
             {
                 DataRow row = gridView2.GetDataRow(i);
                 txtMaTieuChi.Text = Convert.ToString(row[0]);
-                
+                clearTextDiem();
             }
+            
             show();
+        }
+        void clearTextDiem()
+        {
+            txbKhoacham.Text = "";
+            txtGVCN.Text = "";
+            txtLopTruong.Text = "";
+            txtTuCham.Text = "";
         }
     }
 }

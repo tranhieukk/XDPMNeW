@@ -233,5 +233,16 @@ namespace QuanLyDiem
             frmDiemRenLuyen frm = new frmDiemRenLuyen();
             ViewChildForm(frm);
         }
+
+        private void btnDiemmonhoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDiemMonHoc frm = new frmDiemMonHoc();
+            ViewChildForm(frm);
+        }
+
+        private void btnBieuMauSinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }

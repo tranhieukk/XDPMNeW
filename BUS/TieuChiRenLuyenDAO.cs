@@ -60,5 +60,19 @@ namespace BUS
             }
             return sl >= 1;
         }
+
+        public int  MaxDiem(string matc)
+        {
+            int sl = 0;
+            string query = "exec  USP_MaxDiemRenLuyen @mtc  ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { matc });
+            foreach (DataRow row in data.Rows)
+            {
+
+                sl = int.Parse(row["MucDiem"].ToString());
+
+            }
+            return sl;
+        }
     }
 }

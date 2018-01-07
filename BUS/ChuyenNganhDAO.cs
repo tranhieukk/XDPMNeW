@@ -46,7 +46,7 @@ namespace BUS
         }
         public int Insert(ChuyenNganh chuyenNganh)
         {
-            string query = " Exec USP_addChuyenNganh @MaNganh , @TenNganh , @MaKhoa ";
+            string query = " Execute USP_addChuyenNganh @MaNganh , @TenNganh , @MaKhoa ";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { chuyenNganh.MaNganh, chuyenNganh.TenNganh, chuyenNganh.MaKhoa });
         }
         public int Remove(ChuyenNganh chuyenNganh)

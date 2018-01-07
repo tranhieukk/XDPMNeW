@@ -57,8 +57,10 @@
             this.btnChuyenNganh = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribonDanhMuc = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonQuanLy = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rPGQuanLy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rPGBieuMau = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbtaiKhoan = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -66,8 +68,6 @@
             this.ribbonCaiDat = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgGiaoDien = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.MdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.rCTQuanLyDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MdiManager)).BeginInit();
             this.SuspendLayout();
@@ -196,6 +196,7 @@
             this.btnDiemmonhoc.Id = 11;
             this.btnDiemmonhoc.ImageOptions.LargeImage = global::QuanLyDiem.Properties.Resources._79360_204030_paper_test;
             this.btnDiemmonhoc.Name = "btnDiemmonhoc";
+            this.btnDiemmonhoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDiemmonhoc_ItemClick);
             // 
             // btnThiLai
             // 
@@ -248,6 +249,7 @@
             this.btnBieuMauSinhVien.Id = 18;
             this.btnBieuMauSinhVien.ImageOptions.LargeImage = global::QuanLyDiem.Properties.Resources.Data_List_icon;
             this.btnBieuMauSinhVien.Name = "btnBieuMauSinhVien";
+            this.btnBieuMauSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBieuMauSinhVien_ItemClick);
             // 
             // btnDanhSachMonHoc
             // 
@@ -300,7 +302,7 @@
             this.ribonDanhMuc,
             this.ribbonPageGroup1});
             this.ribbonDanhMuc.Name = "ribbonDanhMuc";
-            this.ribbonDanhMuc.Text = "Danh mục";
+            this.ribbonDanhMuc.Text = "Quản lý";
             // 
             // ribonDanhMuc
             // 
@@ -309,21 +311,37 @@
             this.ribonDanhMuc.Name = "ribonDanhMuc";
             this.ribonDanhMuc.Text = "Danh mục";
             // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnKhoa);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnLop);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnHocKy);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnChuyenNganh);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnHeDaoTao);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Hệ thống đào tạo";
+            // 
             // ribbonQuanLy
             // 
             this.ribbonQuanLy.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rPGQuanLy,
             this.ribbonPageGroup2});
             this.ribbonQuanLy.Name = "ribbonQuanLy";
-            this.ribbonQuanLy.Text = "Quản lý";
+            this.ribbonQuanLy.Text = "Đào tạo";
             // 
             // rPGQuanLy
             // 
             this.rPGQuanLy.ItemLinks.Add(this.btnSinhVien);
-            this.rPGQuanLy.ItemLinks.Add(this.btnLop);
             this.rPGQuanLy.ItemLinks.Add(this.btnRole);
             this.rPGQuanLy.Name = "rPGQuanLy";
             this.rPGQuanLy.Text = "Cá nhân và tập thể";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnDiemmonhoc);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnDiemRenLuyen);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Điểm số";
             // 
             // ribbonBaoCao
             // 
@@ -373,22 +391,6 @@
             // MdiManager
             // 
             this.MdiManager.MdiParent = this;
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnKhoa);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnHocKy);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnChuyenNganh);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnHeDaoTao);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Đào tạo";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnDiemmonhoc);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnDiemRenLuyen);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Điểm số";
             // 
             // frmMenu
             // 

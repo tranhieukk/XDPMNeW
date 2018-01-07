@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BUS;
 using DTO;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace QuanLyDiem
 {
@@ -21,6 +22,32 @@ namespace QuanLyDiem
             InitializeComponent();
             loadKhoa();
             loadChuyenNganh();
+            gridView1.CustomDrawRowIndicator += gridView1_CustomDrawRowIndicator;
+        }
+        void gridView1_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.Info.IsRowIndicator)
+            {
+                if (e.RowHandle < 0)
+                {
+                    e.Info.ImageIndex = 0;
+                    e.Info.DisplayText = String.Empty;
+                }
+                else
+                {
+                    e.Info.ImageIndex = -1;
+                    e.Info.DisplayText = (e.RowHandle + 1).ToString();
+                }
+                SizeF sizeF = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                Int32 width = Convert.ToInt32(sizeF.Width) + 10;
+                BeginInvoke(new MethodInvoker(delegate { cal(width, gridView1); }));
+            }
+
+        }
+        bool cal(Int32 width, GridView _View)
+        {
+            _View.IndicatorWidth = _View.IndicatorWidth < width ? width : _View.IndicatorWidth;
+            return true;
         }
         void loadKhoa()
         {

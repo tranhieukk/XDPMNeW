@@ -38,3 +38,11 @@ H:\Git\XDPM_new\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 H:\Git\XDPM_new\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 H:\Git\XDPM_new\DAL\obj\Debug\DAL.dll
 H:\Git\XDPM_new\DAL\obj\Debug\DAL.pdb
+H:\Git\XDPMNeW\DAL\bin\Debug\DAL.dll
+H:\Git\XDPMNeW\DAL\bin\Debug\DAL.pdb
+H:\Git\XDPMNeW\DAL\bin\Debug\DTO.dll
+H:\Git\XDPMNeW\DAL\bin\Debug\DTO.pdb
+H:\Git\XDPMNeW\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+H:\Git\XDPMNeW\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+H:\Git\XDPMNeW\DAL\obj\Debug\DAL.dll
+H:\Git\XDPMNeW\DAL\obj\Debug\DAL.pdb

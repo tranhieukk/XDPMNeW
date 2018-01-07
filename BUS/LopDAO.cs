@@ -22,7 +22,11 @@ namespace BUS
             string query = "Exec USP_getAllLop";
             return DAL.DataProvider.Instance.ExecuteQuery(query);
         }
-
+        public DataTable getAllDataByKhoa(string makhoa)
+        {
+            string query = "Exec USP_getAllLopbyKhoa @makhoa";
+            return DAL.DataProvider.Instance.ExecuteQuery(query,new object[] {makhoa });
+        }
         public int addLop(Lop lop )
         {
             string query = "Exec USP_addLop @maLop , @tenLop , @maKhoaHoc , @heDaoTao  , @nganhHoc";
@@ -37,6 +41,19 @@ namespace BUS
         {
             string query = "Exec USP_deletetLop @malopOld ";
             return DAL.DataProvider.Instance.ExecuteNonQuery(query, new object[] { malopOld});
+        }
+
+        public bool IsExist(string malop)
+        {
+
+            string query = "Exec USP_CheckLop @malop  ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { malop});
+
+            foreach (DataRow row in data.Rows)
+            {
+                return (int.Parse(row["SL"].ToString()) > 0);
+            }
+            return false;
         }
     }
 }

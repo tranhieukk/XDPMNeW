@@ -15,6 +15,7 @@ namespace DTO
         int loptruong;
         int gvcn;
         int khoa;
+        bool isGood;
 
         public DiemRenLuyen()
         {
@@ -27,5 +28,12 @@ namespace DTO
         public int Loptruong { get => loptruong; set => loptruong = value; }
         public int Gvcn { get => gvcn; set => gvcn = value; }
         public int Khoa { get => khoa; set => khoa = value; }
+        public void Good(int m) {
+            if (m < Gvcn) Gvcn = m;
+            if (m < Khoa) Khoa = m;
+            if (m < Loptruong) Loptruong = m;
+            if (m < Tucham) Tucham = m;
+            
+        }
     }
 }

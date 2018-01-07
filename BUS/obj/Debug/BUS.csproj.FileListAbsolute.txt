@@ -48,3 +48,13 @@ H:\Git\XDPM_new\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
 H:\Git\XDPM_new\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
 H:\Git\XDPM_new\BUS\obj\Debug\BUS.dll
 H:\Git\XDPM_new\BUS\obj\Debug\BUS.pdb
+H:\Git\XDPMNeW\BUS\bin\Debug\BUS.dll
+H:\Git\XDPMNeW\BUS\bin\Debug\BUS.pdb
+H:\Git\XDPMNeW\BUS\bin\Debug\DAL.dll
+H:\Git\XDPMNeW\BUS\bin\Debug\DTO.dll
+H:\Git\XDPMNeW\BUS\bin\Debug\DAL.pdb
+H:\Git\XDPMNeW\BUS\bin\Debug\DTO.pdb
+H:\Git\XDPMNeW\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+H:\Git\XDPMNeW\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+H:\Git\XDPMNeW\BUS\obj\Debug\BUS.dll
+H:\Git\XDPMNeW\BUS\obj\Debug\BUS.pdb
