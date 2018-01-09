@@ -212,7 +212,9 @@ namespace QuanLyDiem
         }
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-
+            diemMonHoc.MaHocKy = cbHocKy.SelectedValue.ToString();
+            diemMonHoc.MaMonHoc = txbMaMon.Text;
+            
 
             for (int n = 0; n < gridView1.RowCount - 1; n++)
             {

@@ -40,6 +40,12 @@ namespace BUS
             string query = "EXEC USP_getAllSinhVien";
             return DataProvider.Instance.ExecuteQuery(query);
         }
+        public DataTable SelectByLop(string malop)
+        {
+            string query = "EXEC USP_getSinhVienByLop @maLop ";
+            return DataProvider.Instance.ExecuteQuery(query,new object[] { malop });
+        }
+        
         public bool IsExist(string masv)
         {
             int sl = 0;
@@ -52,6 +58,37 @@ namespace BUS
 
             }
             return sl>=1;
+        }
+        public List<Student> GetListSV(string maLop)
+        {
+            List<Student> list = new List<Student>();
+            string query = "EXEC USP_getSinhVienByLop @maLop ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maLop });
+            foreach(DataRow row in data.Rows)
+            {
+                Student sv = new Student(row);
+                list.Add(sv);
+            }
+            return list;
+        }
+        public StudentDetail GetStudentDetail(string maSV)
+        {
+            StudentDetail sv = new StudentDetail();
+            string query = "EXEC USP_getSinhVienDetail @masv ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maSV });
+            foreach (DataRow row in data.Rows)
+            {
+                sv.FullName = row[0].ToString();
+                sv.DateOfBirth = row[1].ToString();
+                sv.Gender = row[2].ToString();
+                sv.Root = row[3].ToString();
+                sv.Class = row[4].ToString();
+                sv.Course = row[5].ToString();
+                sv.Specialized = row[6].ToString();
+                sv.TrainingSystem = row[7].ToString();
+
+            }
+            return sv;
         }
     }
 }

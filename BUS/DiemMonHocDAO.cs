@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DTO;
 namespace BUS
 {
    public class DiemMonHocDAO
@@ -52,6 +52,23 @@ namespace BUS
           return   DataProvider.Instance.ExecuteNonQuery(query, new object[] {mahk ,malop, mamon  });
 
         }
-
+        public List<rpDiemMonHoc> GetListDiemSV(string maSinhVien)
+        {
+            List<rpDiemMonHoc> list = new List<rpDiemMonHoc>();
+            string query = "EXEC USP_getDiemBySV @masv ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maSinhVien });
+            foreach (DataRow row in data.Rows)
+            {
+                rpDiemMonHoc diem  = new rpDiemMonHoc(row);
+                list.Add(diem);
+            }
+            return list;
+        }
+        public DataTable GetTableDiemSV(string maSinhVien)
+        {
+            string query = "EXEC USP_getDiemBySV @masv ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maSinhVien });
+            return data;
+        }
     }
 }

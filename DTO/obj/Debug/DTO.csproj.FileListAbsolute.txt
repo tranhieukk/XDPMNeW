@@ -17,7 +17,7 @@ H:\Git\XDPM_new\DTO\obj\Debug\DTO.dll
 H:\Git\XDPM_new\DTO\obj\Debug\DTO.pdb
 H:\Git\XDPMNeW\DTO\bin\Debug\DTO.dll
 H:\Git\XDPMNeW\DTO\bin\Debug\DTO.pdb
-H:\Git\XDPMNeW\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
 H:\Git\XDPMNeW\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 H:\Git\XDPMNeW\DTO\obj\Debug\DTO.dll
 H:\Git\XDPMNeW\DTO\obj\Debug\DTO.pdb
+H:\Git\XDPMNeW\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache

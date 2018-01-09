@@ -39,6 +39,17 @@ namespace BUS
             return DataProvider.Instance.ExecuteQuery("exec USP_getAllKhoa");
           
         }
+        public string SelectbyMaLop(string maLop)
+        {
+            string result="";
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec USP_getKhoabyLop @maLop",new object[] { maLop});
+
+            foreach (DataRow row in data.Rows)
+            {
+                result = row["Tenkhoa"].ToString();
+            }
+            return result;
+        }
         public int addKhoa(string makhoa, string tenKhoa)
         {
             string query = "exec USP_addKhoa @maKhoa  , @tenKhoa";

@@ -15,7 +15,7 @@ namespace DTO
         int loptruong;
         int gvcn;
         int khoa;
-        bool isGood;
+       
 
         public DiemRenLuyen()
         {

@@ -257,6 +257,7 @@
             this.btnDanhSachMonHoc.Id = 19;
             this.btnDanhSachMonHoc.ImageOptions.LargeImage = global::QuanLyDiem.Properties.Resources.book_icon;
             this.btnDanhSachMonHoc.Name = "btnDanhSachMonHoc";
+            this.btnDanhSachMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachMonHoc_ItemClick);
             // 
             // btnBangDiemCaNhan
             // 
@@ -264,6 +265,7 @@
             this.btnBangDiemCaNhan.Id = 20;
             this.btnBangDiemCaNhan.ImageOptions.LargeImage = global::QuanLyDiem.Properties.Resources._79360_204030_paper_test;
             this.btnBangDiemCaNhan.Name = "btnBangDiemCaNhan";
+            this.btnBangDiemCaNhan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBangDiemCaNhan_ItemClick);
             // 
             // btndanhSachHocBong
             // 

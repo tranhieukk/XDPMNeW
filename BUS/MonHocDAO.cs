@@ -34,6 +34,17 @@ namespace BUS
 
             return data;
         }
+        public List<RpMonHoc> SelectByLop(string maLop)
+        {
+            List<RpMonHoc> rp = new List<RpMonHoc>();
+            string query = "Exec USP_getMonHocBy @maLop";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query,new object[] { maLop });
+            foreach(DataRow mh in data.Rows)
+            {
+                rp.Add(new RpMonHoc(mh));
+            }
+            return rp; ;
+        }
         public DataTable Find(string key1, string key2, string key3   )
         {
             key1 = "%" + key1 + "%";

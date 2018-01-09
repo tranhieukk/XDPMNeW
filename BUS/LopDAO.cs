@@ -55,5 +55,15 @@ namespace BUS
             }
             return false;
         }
+        public string GetName(string maLop)
+        {
+            string result = "";
+            DataTable data = DataProvider.Instance.ExecuteQuery("exec USP_getnameclass @maLop", new object[] { maLop });
+            foreach (DataRow row in data.Rows)
+            {
+                result = row["TenLop"].ToString();
+            }
+            return result;
+        }
     }
 }

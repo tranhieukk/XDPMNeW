@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DTO;
+using QuanLyDiem.Reports;
+
 namespace QuanLyDiem
 {
     public partial class frmMenu : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -138,12 +140,7 @@ namespace QuanLyDiem
         }
         private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dlr;
-            dlr = XtraMessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dlr == DialogResult.No)
-            {
-                Application.Exit();
-            }
+            
         }
         
         private void btnLogIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -242,7 +239,20 @@ namespace QuanLyDiem
 
         private void btnBieuMauSinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Reports.StudentReport frm = new Reports.StudentReport();
+            ViewChildForm(frm);
+        }
 
+        private void btnDanhSachMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Reports.ReportMonHoccs frm = new Reports.ReportMonHoccs();
+            ViewChildForm(frm);
+        }
+
+        private void btnBangDiemCaNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmRpBangDiemCaNhan frm = new frmRpBangDiemCaNhan();
+            ViewChildForm(frm);
         }
     }
 }

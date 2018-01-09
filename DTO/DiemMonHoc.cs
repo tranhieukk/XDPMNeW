@@ -12,7 +12,7 @@ namespace DTO
         string maMonHoc;
         string maHocKy;
         string diemTX, diem15p, diemGK, diemCK1, diemCK2;
-        private bool isGood;
+       
         public DiemMonHoc(){}
 
         public string DiemTX { get => diemTX; set => diemTX = value; }
