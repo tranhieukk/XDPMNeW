@@ -13,7 +13,7 @@ namespace DTO
         String trangThai;
 
         public QuyenHan() { }
-
+    
 
         public string MaQuyen { get => maQuyen; set => maQuyen = value; }
         public string NoiDungQuyen { get => noiDungQuyen; set => noiDungQuyen = value; }

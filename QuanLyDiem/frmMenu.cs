@@ -9,26 +9,50 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DTO;
 using QuanLyDiem.Reports;
+using BUS;
 
 namespace QuanLyDiem
 {
     public partial class frmMenu : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        private static DevExpress.LookAndFeel.DefaultLookAndFeel themes = new DevExpress.LookAndFeel.DefaultLookAndFeel();
         public frmMenu()
         {
             InitializeComponent();
-            //Establish();
-
+            Establish();
+            Enablecontrol();
 
 
         }
         private void Establish()
         {
+            this.rCTQuanLyDiem.Visible = true;
+            this.rbtaiKhoan.Visible = true;
+            this.rpgTruyCap.Visible = true;
+            this.ribHeThongDaotao.Visible = false;
+            this.ribDiemSo.Visible = false;
+         
+            this.ribbonDanhMuc.Visible = false;
+            this.ribonDanhMuc.Visible = false;
+            this.ribbonQuanLy.Visible = false;
+            this.rPGQuanLy.Visible = false;
+         
+            this.ribbonBaoCao.Visible = false;            
+            this.rPGBieuMau.Visible = false;
+
+            this.btnHocKy.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnDiemRenLuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnBieuMauSinhVien.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnDanhSachMonHoc.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnBangDiemCaNhan.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btndanhSachHocBong.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnTieuChiRenLuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnHeDaoTao.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnChuyenNganh.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnLogIn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnChangePass.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnLogOut.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnChangePass.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            this.btnLogOut.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
             this.btnRole.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.skinRibbonGalleryBarItem1.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnMonhoc.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnKhoa.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnLop.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -38,25 +62,6 @@ namespace QuanLyDiem
             this.btnThiLai.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnHoclai.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnDSSVThiLai.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.hocKy.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnHocKy.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnDiemRenLuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnBieuMauSinhVien.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnDanhSachMonHoc.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnBangDiemCaNhan.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btndanhSachHocBong.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnTieuChiRenLuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-
-            this.ribbonDanhMuc.Visible = false;
-            this.ribonDanhMuc.Visible = false;
-            this.ribbonQuanLy.Visible = false;
-            this.rPGQuanLy.Visible = false;
-            this.ribbonBaoCao.Visible = false;
-            this.rPGBieuMau.Visible = false;
-            this.rbtaiKhoan.Visible = false;
-            this.rpgTruyCap.Visible = false;
-            this.ribbonCaiDat.Visible = false;
-            this.rpgGiaoDien.Visible = false;
 
 
         }
@@ -67,25 +72,114 @@ namespace QuanLyDiem
             {
                 this.ribbonQuanLy.Visible = true;
                 this.btnDiemmonhoc.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.ribDiemSo.Visible = true;
             }
           
             if (checkper("NDR")|| checkper("SDR"))
             {
                 this.ribbonQuanLy.Visible = true;
-                this.btnDiemmonhoc.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.btnDiemRenLuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.ribDiemSo.Visible = true;
             }
-           
+            if (checkper("NMH") || checkper("SMH") || checkper("XMH"))
+            {
+                this.ribbonDanhMuc.Visible = true;
+                this.btnMonhoc.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.ribonDanhMuc.Visible = true;
+            }
+            if (checkper("THD") || checkper("SHD") || checkper("XHD"))
+            {
+                this.ribbonDanhMuc.Visible = true;
+                this.btnHeDaoTao.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.ribHeThongDaotao.Visible = true;
+            }
+            if (checkper("THK") || checkper("SHK") || checkper("XHK"))
+            {
+                this.ribbonDanhMuc.Visible = true;
+                this.btnHocKy.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.ribHeThongDaotao.Visible = true;
+            }
 
-            this.ribbonDanhMuc.Visible = false;
-            this.ribonDanhMuc.Visible = false;
-            this.ribbonQuanLy.Visible = false;
-            this.rPGQuanLy.Visible = false;
-            this.ribbonBaoCao.Visible = false;
-            this.rPGBieuMau.Visible = false;
-            this.rbtaiKhoan.Visible = false;
-            this.rpgTruyCap.Visible = false;
-            this.ribbonCaiDat.Visible = true;
-            this.rpgGiaoDien.Visible = true;
+            if (checkper("TK") || checkper("SK") || checkper("XK"))
+            {
+                this.ribbonDanhMuc.Visible = true;
+                this.btnKhoa.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.ribHeThongDaotao.Visible = true;
+            }
+            if (checkper("TL") || checkper("SL") || checkper("XL"))
+            {
+                this.ribbonDanhMuc.Visible = true;
+                this.btnLop.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.ribHeThongDaotao.Visible = true;
+            }
+            
+                if (checkper("TNDT") || checkper("SNDT") || checkper("XNDT"))
+            {
+                this.ribbonDanhMuc.Visible = true;
+                this.btnChuyenNganh.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.ribHeThongDaotao.Visible = true;
+            }
+            if (checkper("TSV") || checkper("TSV") || checkper("TSV"))
+            {
+                this.ribbonQuanLy.Visible = true;
+                this.btnSinhVien.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.rPGQuanLy.Visible = true;
+            }
+            if (checkper("TRL") || checkper("SRL") || checkper("XRL"))
+            {
+                this.ribbonQuanLy.Visible = true;
+                this.btnSinhVien.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.rPGQuanLy.Visible = true;
+            }
+            if (checkper("TNDT") || checkper("SNDT") || checkper("XNDT"))
+            {
+                this.ribbonDanhMuc.Visible = true;
+                this.btnTieuChiRenLuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.ribonDanhMuc.Visible = true;
+            }
+            if (checkper("BCMH") )
+            {
+                this.ribbonBaoCao.Visible = true;
+                this.btnDanhSachMonHoc.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.rPGBieuMau.Visible = true;
+            }
+            if (checkper("BCSV"))
+            {
+                this.ribbonBaoCao.Visible = true;
+                this.btnBieuMauSinhVien.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.rPGBieuMau.Visible = true;
+            }
+            if (checkper("DCN"))
+            {
+                this.ribbonBaoCao.Visible = true;
+                this.btnBangDiemCaNhan.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.rPGBieuMau.Visible = true;
+            }
+            if (checkper("LHB"))
+            {
+                this.ribbonBaoCao.Visible = true;
+                this.btndanhSachHocBong.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.rPGBieuMau.Visible = true;
+            }
+            if (checkper("LTL"))
+            {
+                this.ribbonBaoCao.Visible = true;
+                this.btnThiLai.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.rPGBieuMau.Visible = true;
+            }
+            
+                 if (checkper("LHL"))
+            {
+                this.ribbonBaoCao.Visible = true;
+                this.btnHoclai.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.rPGBieuMau.Visible = true;
+            }
+            if (checkper("QLND"))
+            {
+                this.ribbonDanhMuc.Visible = true;
+                this.btnRole.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                this.ribonDanhMuc.Visible = true;
+            }
         }
         private Boolean checkper(string code)
         {
@@ -102,9 +196,18 @@ namespace QuanLyDiem
         public void skins()
         {
             DevExpress.LookAndFeel.DefaultLookAndFeel themes = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+            if(!changeSkin())
             themes.LookAndFeel.SkinName = "Blue"; // giao diện mặc định khi mở chương trình
         }
-
+        bool changeSkin()
+        {   string skin= QuanLyAccountDAO.Instance.GetSkin(Program.Username);
+            if(skin.Length > 0)
+            {
+             themes.LookAndFeel.SkinName = skin;
+                return true;
+            }
+            return false;
+        }
         private void frmMenu_Load(object sender, EventArgs e)
         {
             skins();
@@ -140,7 +243,7 @@ namespace QuanLyDiem
         }
         private void frmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            QuanLyAccountDAO.Instance.Update(Program.Username, themes.LookAndFeel.SkinName);
         }
         
         private void btnLogIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -252,6 +355,37 @@ namespace QuanLyDiem
         private void btnBangDiemCaNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmRpBangDiemCaNhan frm = new frmRpBangDiemCaNhan();
+            ViewChildForm(frm);
+        }
+
+        private void btndanhSachHocBong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            rpFrmHocBong frm = new rpFrmHocBong();
+            ViewChildForm(frm);
+        }
+
+        private void btnRole_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmQuanLyNguoiDung frm = new frmQuanLyNguoiDung();
+            ViewChildForm(frm);
+        }
+
+        private void btnHoclai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            frmHocLai frm = new frmHocLai();
+            ViewChildForm(frm);
+        }
+
+        private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDoiMatKhau frm = new frmDoiMatKhau();
+            ViewChildForm(frm);
+        }
+
+        private void btnThiLai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmThiLai frm = new frmThiLai();
             ViewChildForm(frm);
         }
     }

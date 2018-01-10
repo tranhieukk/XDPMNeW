@@ -26,5 +26,16 @@ namespace BUS
             return textInfo.ToTitleCase(str);
         }
 
+        public string DelSpaceandUpper(string str)
+        {
+            CultureInfo cultureInfo = new CultureInfo("vi-VN");
+            TextInfo textInfo = cultureInfo.TextInfo;
+            str = textInfo.ToLower(str);
+            // Replace multiple white space to 1 white  space
+            str = System.Text.RegularExpressions.Regex.Replace(str, @"\s{2,}", "");
+            //Upcase like Title
+            return textInfo.ToUpper(str);
+        }
+
     }
 }

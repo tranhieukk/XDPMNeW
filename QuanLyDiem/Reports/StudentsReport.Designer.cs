@@ -233,7 +233,7 @@
             // 
             // prKhoaName
             // 
-            this.prKhoaName.Description = "Parameter1";
+            this.prKhoaName.Description = "Tên khoa";
             this.prKhoaName.Name = "prKhoaName";
             // 
             // xrLabel9
@@ -249,7 +249,7 @@
             // 
             // prNameClass
             // 
-            this.prNameClass.Description = "Parameter1";
+            this.prNameClass.Description = "Tên lớp";
             this.prNameClass.Name = "prNameClass";
             // 
             // xrTable1

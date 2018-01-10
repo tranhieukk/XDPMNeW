@@ -56,5 +56,18 @@ namespace QuanLyDiem
             Report.CreateDocument();
 
         }
+        public void printDHB(string khoa,DTO.rpThongTin rp, List<DTO.rpHocBong> data)
+        {
+            Reports.rpHocBong Report = new Reports.rpHocBong();
+            foreach (DevExpress.XtraReports.Parameters.Parameter p in Report.Parameters)
+            {
+                p.Visible = true;
+            }
+            Report.initData(khoa,rp, data);
+            documentViewer1.DocumentSource = Report;
+
+            Report.CreateDocument();
+
+        }
     }
 }

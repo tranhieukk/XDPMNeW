@@ -34,12 +34,13 @@ namespace QuanLyDiem
                  Account account = AccountDAO.Instance.GetAccountByUserName(userName);
                 Program.Username = account.UserName;
                 DataTable tablePermision = QuyenHanDAO.Instance.SelectAllPermisionForAccount(account);
-                foreach(DataRow permision in tablePermision.Rows)
+                List<ChiTietQuyenHan> listPermision = new List<ChiTietQuyenHan>();
+                foreach (DataRow permision in tablePermision.Rows)
                 {
                     ChiTietQuyenHan item = new ChiTietQuyenHan(permision);
-                    Program.ListPermision.Add(item);
+                    listPermision.Add(item);
                 }
-
+                Program.ListPermision = listPermision;
                 frmMenu f = new frmMenu();
                 this.Hide();
                 f.ShowDialog();

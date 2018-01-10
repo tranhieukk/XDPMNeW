@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnXBC = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.lbTitle = new System.Windows.Forms.Label();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -46,8 +47,8 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnXBC = new DevExpress.XtraEditors.SimpleButton();
             this.gvDSSV = new DevExpress.XtraGrid.GridControl();
             this.studentBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -57,7 +58,6 @@
             this.colGender = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQueQuan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
@@ -75,11 +75,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDSSV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -97,6 +97,16 @@
             this.layoutControl1.Size = new System.Drawing.Size(812, 97);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // btnXBC
+            // 
+            this.btnXBC.Location = new System.Drawing.Point(305, 12);
+            this.btnXBC.Name = "btnXBC";
+            this.btnXBC.Size = new System.Drawing.Size(72, 22);
+            this.btnXBC.StyleController = this.layoutControl1;
+            this.btnXBC.TabIndex = 0;
+            this.btnXBC.Text = "Xuất báo cáo";
+            this.btnXBC.Click += new System.EventHandler(this.btnXBC_Click);
             // 
             // layoutControl4
             // 
@@ -254,6 +264,15 @@
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.btnXBC;
+            this.layoutControlItem7.Location = new System.Drawing.Point(293, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(76, 26);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
             // panelControl1
             // 
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -261,16 +280,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(812, 32);
             this.panelControl1.TabIndex = 1;
-            // 
-            // btnXBC
-            // 
-            this.btnXBC.Location = new System.Drawing.Point(305, 12);
-            this.btnXBC.Name = "btnXBC";
-            this.btnXBC.Size = new System.Drawing.Size(72, 22);
-            this.btnXBC.StyleController = this.layoutControl1;
-            this.btnXBC.TabIndex = 0;
-            this.btnXBC.Text = "Xuất báo cáo";
-            this.btnXBC.Click += new System.EventHandler(this.btnXBC_Click);
             // 
             // gvDSSV
             // 
@@ -299,6 +308,7 @@
             this.colGhiChu});
             this.gridView1.GridControl = this.gvDSSV;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // colMaSinhVien
             // 
@@ -348,15 +358,6 @@
             this.colGhiChu.VisibleIndex = 5;
             this.colGhiChu.Width = 120;
             // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.btnXBC;
-            this.layoutControlItem7.Location = new System.Drawing.Point(293, 0);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(76, 26);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
-            // 
             // StudentReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,11 +385,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDSSV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
 
         }

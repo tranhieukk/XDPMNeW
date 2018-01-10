@@ -16,7 +16,7 @@ namespace QuanLyDiem
 {
     public partial class frmMonHoc : DevExpress.XtraEditors.XtraForm
     {
-        string maMHHT=null;
+        string maMHHT = null;
         public frmMonHoc()
         {
             InitializeComponent();
@@ -62,16 +62,32 @@ namespace QuanLyDiem
             }
             else
             {
+
+
+
+
                 MonHoc mH = new MonHoc();
                 mH.MaMH = txtMaMon.Text;
                 mH.TenMH = txtTenMon.Text;
                 mH.SoHocPhan = int.Parse(txtSoDVHT.Text);
-              if(MonHocDAO.Instance.Insert(mH) > 0) {
-                lbThongBao.Text = "Thông báo: Đã thêm thành công môn học " + mH.TenMH;
-                    clear();
-                    loadMonHoc(); }
-              else
-                    lbThongBao.Text = "Thông báo: Thêm môn học không thành công. " + mH.TenMH;
+
+                if (MonHocDAO.Instance.IsExist(mH.MaMH))
+                {
+                    XtraMessageBox.Show("Mã môn học đã tồn tại.", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+
+
+                    if (MonHocDAO.Instance.Insert(mH) > 0)
+                    {
+                        lbThongBao.Text = "Thông báo: Đã thêm thành công môn học " + mH.TenMH;
+                        clear();
+                        loadMonHoc();
+                    }
+                    else
+                        lbThongBao.Text = "Thông báo: Thêm môn học không thành công. " + mH.TenMH;
+                }
             }
         }
 
@@ -80,7 +96,7 @@ namespace QuanLyDiem
             if (txtMaMon.Text.Length < 1 || txtTenMon.Text.Length < 1 || txtSoDVHT.Text.Length < 1)
             {
                 XtraMessageBox.Show("Bạn chưa nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
             }
             else
             {
@@ -88,20 +104,33 @@ namespace QuanLyDiem
                 mH.MaMH = txtMaMon.Text;
                 mH.TenMH = txtTenMon.Text;
                 mH.SoHocPhan = int.Parse(txtSoDVHT.Text);
-                if (MonHocDAO.Instance.Update(mH, maMHHT) > 0)
+                bool check = true;
+                if (mH.MaMH != maMHHT)
+                    if (MonHocDAO.Instance.IsExist(mH.MaMH))
+                    {
+                        XtraMessageBox.Show("Mã môn học đã tồn tại.", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        check = false;
+                    }
+
+
+                if (check)
                 {
-                    lbThongBao.Text = "Thông báo: Đã cập nhật thành công môn học " + mH.TenMH;
-                    clear();
-                    loadMonHoc();
+
+                    if (MonHocDAO.Instance.Update(mH, maMHHT) > 0)
+                    {
+                        lbThongBao.Text = "Thông báo: Đã cập nhật thành công môn học " + mH.TenMH;
+                        clear();
+                        loadMonHoc();
+                    }
+                    else
+                        lbThongBao.Text = "Thông báo: Đã cập nhật  môn học không thành công. " + mH.TenMH;
                 }
-                else
-                    lbThongBao.Text = "Thông báo: Đã cập nhật  môn học không thành công. " + mH.TenMH;
             }
         }
 
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (txtMaMon.Text.Length < 1 || txtTenMon.Text.Length < 1 || txtSoDVHT.Text.Length < 1 || maMHHT.Length<1)
+            if (txtMaMon.Text.Length < 1 || txtTenMon.Text.Length < 1 || txtSoDVHT.Text.Length < 1 || maMHHT.Length < 1)
             {
                 XtraMessageBox.Show("Bạn chưa chọn môn học cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -145,7 +174,7 @@ namespace QuanLyDiem
         }
         void clear()
         {
-txtMaMon.Text = "";
+            txtMaMon.Text = "";
             txtSoDVHT.Text = "";
             txtTenMon.Text = "";
         }

@@ -64,11 +64,76 @@ namespace BUS
             }
             return list;
         }
-        public DataTable GetTableDiemSV(string maSinhVien)
+        public List<rpHocBong> GetListHBSV(string maHocKy, string khoa)
+        {
+            List<rpHocBong> list = new List<rpHocBong>();
+            string query = "EXEC USP_ListHB @maHK , @maKhoa ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maHocKy,khoa });
+            foreach (DataRow row in data.Rows)
+            {
+                rpHocBong diem = new rpHocBong(row);
+                list.Add(diem);
+            }
+            return list;
+        }
+        
+             public DataTable GetTableDiemSV(string masv)
         {
             string query = "EXEC USP_getDiemBySV @masv ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maSinhVien });
+          return  DataProvider.Instance.ExecuteQuery(query, new object[] { masv });
+        }
+        public DataTable GetTableHBSV(string maHocKy,string maKhoa)
+        {
+            string query = "EXEC USP_ListHB @maHK , @maKhoa ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maHocKy, maKhoa });
             return data;
+        }
+
+        public DataTable GetTableSVHocLaiTheoKhoa(string maKhoa, int type)
+        {
+            if (type == 1) maKhoa = "%" + maKhoa + "%";
+            string query = "EXEC USP_TimKiemHocLaibyKhoa @makhoa , @type ";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maKhoa, type });
+        }
+        public DataTable GetTableSVHocLaiTheoLop(string maLop, int type)
+        {
+            if (type == 1) maLop = "%" + maLop + "%";
+            string query = "EXEC USP_TimKiemHocLaibyLop @maLop , @type ";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maLop, type });
+        }
+        public DataTable GetTableSVHocLaiTheoMaSV(string maSV, int type)
+        {
+            if (type == 1) maSV = "%" + maSV + "%";
+            string query = "EXEC USP_TimKiemHocLaibyMaSV @masv , @type ";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maSV, type });
+        }
+        public DataTable GetTableSVHocLai( )
+        {
+            string query = "EXEC USP_TimKiemHocLai ";
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+        public DataTable GetTableSVThiLaiTheoKhoa(string maKhoa, int type)
+        {
+            if (type == 1) maKhoa = "%" + maKhoa + "%";
+            string query = "EXEC USP_TimKiemThiLaibyKhoa @makhoa , @type ";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maKhoa, type });
+        }
+        public DataTable GetTableSVThiLaiTheoLop(string maLop, int type)
+        {
+            if (type == 1) maLop = "%" + maLop + "%";
+            string query = "EXEC USP_TimKiemThiLaibyLop @maLop , @type ";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maLop, type });
+        }
+        public DataTable GetTableSVThiLaiTheoMaSV(string maSV, int type)
+        {
+            if (type == 1) maSV = "%" + maSV + "%";
+            string query = "EXEC USP_TimKiemThiLaibyMaSV @masv , @type ";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maSV, type });
+        }
+        public DataTable GetTableSVThiLai()
+        {
+            string query = "EXEC USP_TimKiemThiLai ";
+            return DataProvider.Instance.ExecuteQuery(query);
         }
     }
 }

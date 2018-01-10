@@ -28,7 +28,7 @@ namespace QuanLyDiem
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new frmMenu());
+            Application.Run(new frmLogin());
         }
     }
 }

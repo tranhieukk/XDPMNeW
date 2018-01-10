@@ -1013,3 +1013,9 @@ H:\Git\XDPMNeW\QuanLyDiem\obj\Debug\QuanLyDiem.exe
 H:\Git\XDPMNeW\QuanLyDiem\obj\Debug\QuanLyDiem.pdb
 H:\Git\XDPMNeW\QuanLyDiem\obj\Debug\QuanLyDiem.Reports.frmRpBangDiemCaNhan.resources
 H:\Git\XDPMNeW\QuanLyDiem\obj\Debug\QuanLyDiem.Reports.rpDiemCaNhan.resources
+H:\Git\XDPMNeW\QuanLyDiem\obj\Debug\QuanLyDiem.Reports.rpFrmHocBong.resources
+H:\Git\XDPMNeW\QuanLyDiem\obj\Debug\QuanLyDiem.Reports.rpHocBong.resources
+H:\Git\XDPMNeW\QuanLyDiem\obj\Debug\QuanLyDiem.frmQuanLyNguoiDung.resources
+H:\Git\XDPMNeW\QuanLyDiem\obj\Debug\QuanLyDiem.frmHocLai.resources
+H:\Git\XDPMNeW\QuanLyDiem\obj\Debug\QuanLyDiem.frmDoiMatKhau.resources
+H:\Git\XDPMNeW\QuanLyDiem\obj\Debug\QuanLyDiem.frmThiLai.resources

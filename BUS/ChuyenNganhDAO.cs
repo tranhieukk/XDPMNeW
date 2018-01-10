@@ -21,7 +21,19 @@ namespace BUS
         }
         private    set => instance = value;
         }
+        public bool IsExist(string chuyennghanh)
+        {
+            int sl = 0;
+            string query = "exec  USP_CheckChuyenNganh @mcn  ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { chuyennghanh });
+            foreach (DataRow row in data.Rows)
+            {
 
+                sl = int.Parse(row["soLuong"].ToString());
+
+            }
+            return sl >= 1;
+        }
 
         public List<ChuyenNganh> GetAllData()
         {

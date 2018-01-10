@@ -74,6 +74,19 @@ namespace BUS
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { makhoa, img });
 
         }
+        public string GetName(string makhoa)
+        {
+            string  name = "";
+            string query = "exec  USP_getNameKhoa @maKhoa";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { makhoa });
+            foreach (DataRow row in data.Rows)
+            {
+
+                name = row[0].ToString();
+
+            }
+            return name;
+        }
 
     }
 }

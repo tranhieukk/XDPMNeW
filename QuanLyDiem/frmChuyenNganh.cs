@@ -61,9 +61,14 @@ namespace QuanLyDiem
         }
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ChuyenNganhDAO.Instance.Insert(new DTO.ChuyenNganh(txtMaNganh.Text, txtTenNganh.Text, cbKhoa.SelectedValue.ToString()));
+            if (ChuyenNganhDAO.Instance.IsExist(txtMaNganh.Text))
+            {
+              XtraMessageBox.Show("Mã ngành đã tồn tại.", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else { ChuyenNganhDAO.Instance.Insert(new DTO.ChuyenNganh(txtMaNganh.Text, txtTenNganh.Text, cbKhoa.SelectedValue.ToString()));
             loadChuyenNganh();
-            clear();
+            clear(); }
+           
 
         }
 
